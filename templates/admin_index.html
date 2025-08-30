@@ -1,0 +1,27 @@
+{% raw %}{% extends 'base.html' %}
+{% block content %}
+<h3>Administração (CGPG)</h3>
+<div class="row g-3">
+  <div class="col-md-4">
+    <div class="card"><div class="card-body">
+      <div class="fw-bold">Usuários</div>
+      <div class="display-6">{{ total_users }}</div>
+      <a class="btn btn-sm btn-outline-primary mt-2" href="{{ url_for('admin_usuarios') }}">Gerenciar usuários</a>
+    </div></div>
+  </div>
+  <div class="col-md-4">
+    <div class="card"><div class="card-body">
+      <div class="fw-bold">Componentes</div>
+      <div class="display-6">{{ total_componentes }}</div>
+      <a class="btn btn-sm btn-outline-primary mt-2" href="{{ url_for('admin_componentes') }}">Gerenciar componentes</a>
+    </div></div>
+  </div>
+  <div class="col-md-4">
+    <div class="card"><div class="card-body">
+      <div class="fw-bold">Planos</div>
+      <div class="display-6">{{ total_planos }}</div>
+      <a class="btn btn-sm btn-outline-secondary mt-2" href="{{ url_for('dashboard') }}">Ver dashboard</a>
+    </div></div>
+  </div>
+</div>
+{% endblock %}{% endraw %}

@@ -1,0 +1,24 @@
+{% raw %}{% extends 'base.html' %}
+{% block content %}
+<h3>Dashboard CGPG</h3>
+<div class="row g-3 mb-4">
+  <div class="col-md-3"><div class="card text-bg-secondary"><div class="card-body"><div class="fw-bold">Enviados</div><div class="display-6">{{ enviados }}</div></div></div></div>
+  <div class="col-md-3"><div class="card text-bg-success"><div class="card-body"><div class="fw-bold">Aprovados</div><div class="display-6">{{ aprovados }}</div></div></div></div>
+  <div class="col-md-3"><div class="card text-bg-danger"><div class="card-body"><div class="fw-bold">Reprovados</div><div class="display-6">{{ reprovados }}</div></div></div></div>
+  <div class="col-md-3"><a class="btn btn-outline-primary w-100 h-100 d-flex align-items-center justify-content-center" href="{{ url_for('seed_demo') }}">Criar dados de exemplo</a></div>
+</div>
+<table class="table table-striped">
+  <thead><tr><th>#</th><th>Autor</th><th>Disciplina</th><th>Turma</th><th>Série</th><th>Turno</th><th>Modalidade</th><th>Status</th><th>Enviado em</th></tr></thead>
+  <tbody>
+    {% for p in planos %}
+    <tr>
+      <td>{{ p.id }}</td><td>{{ p.autor }}</td><td>{{ p.disciplina }}</td><td>{{ p.turma }}</td>
+      <td>{{ p.serie }}</td><td>{{ p.turno }}</td><td>{{ p.modalidade }}</td>
+      <td><span class="badge bg-secondary">{{ p.status }}</span></td><td>{{ p.data_envio }}</td>
+    </tr>
+    {% else %}
+    <tr><td colspan="9" class="text-muted">Nenhum plano ainda. Use "Criar dados de exemplo" ou peça a um Docente para enviar.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}{% endraw %}

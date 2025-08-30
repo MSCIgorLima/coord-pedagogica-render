@@ -1,0 +1,26 @@
+{% raw %}{% extends 'base.html' %}
+{% block content %}
+<h3>Componentes Curriculares</h3>
+<form method="post" class="row g-2 mb-3">
+  <div class="col-auto"><input class="form-control" name="nome" placeholder="Novo componente"></div>
+  <div class="col-auto"><button class="btn btn-primary" type="submit">Adicionar</button></div>
+</form>
+<table class="table table-striped">
+  <thead><tr><th>Componente</th><th></th></tr></thead>
+  <tbody>
+    {% for c in componentes %}
+    <tr>
+      <td>{{ c }}</td>
+      <td class="text-end">
+        <form method="post" action="{{ url_for('admin_componentes_remover') }}">
+          <input type="hidden" name="nome" value="{{ c }}">
+          <button class="btn btn-sm btn-outline-danger" type="submit">Remover</button>
+        </form>
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="2" class="text-muted">Nenhum componente cadastrado.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}{% endraw %}

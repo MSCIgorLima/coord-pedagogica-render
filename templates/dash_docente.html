@@ -1,0 +1,20 @@
+{% raw %}{% extends 'base.html' %}
+{% block content %}
+<h3>Dashboard Docente</h3>
+<div class="mb-3">
+  <a class="btn btn-primary" href="{{ url_for('plano_novo') }}">Novo Plano de Aula</a>
+</div>
+<table class="table table-striped">
+  <thead><tr><th>#</th><th>Disciplina</th><th>Turma</th><th>Conteúdo</th><th>Período</th><th>Status</th><th>Enviado em</th></tr></thead>
+  <tbody>
+    {% for p in planos %}
+    <tr>
+      <td>{{ p.id }}</td><td>{{ p.disciplina }}</td><td>{{ p.turma }}</td><td>{{ p.conteudo }}</td><td>{{ p.periodo }}</td>
+      <td><span class="badge bg-secondary">{{ p.status }}</span></td><td>{{ p.data_envio }}</td>
+    </tr>
+    {% else %}
+    <tr><td colspan="7" class="text-muted">Você ainda não enviou planos.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}{% endraw %}

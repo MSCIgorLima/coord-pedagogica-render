@@ -1,0 +1,26 @@
+{% raw %}{% extends 'base.html' %}
+{% block content %}
+<h3>Usuários (CGPAC e Docentes)</h3>
+<div class="mb-3"><a class="btn btn-primary" href="{{ url_for('admin_usuarios_novo') }}">Novo usuário</a></div>
+<table class="table table-striped">
+  <thead><tr><th>Usuário</th><th>Perfil</th><th>Detalhe</th><th></th></tr></thead>
+  <tbody>
+    {% for u in usuarios_lista %}
+    <tr>
+      <td>{{ u.usuario }}</td>
+      <td>{{ u.perfil }}</td>
+      <td>{{ u.detalhe }}</td>
+      <td class="text-end">
+        {% if u.usuario != 'cgpg' %}
+        <form method="post" action="{{ url_for('admin_usuarios_remover', usuario=u.usuario) }}">
+          <button class="btn btn-sm btn-outline-danger" type="submit">Remover</button>
+        </form>
+        {% endif %}
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="4" class="text-muted">Nenhum usuário adicional.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}{% endraw %}

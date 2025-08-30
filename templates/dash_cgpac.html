@@ -1,0 +1,22 @@
+{% raw %}{% extends 'base.html' %}
+{% block content %}
+<h3>Dashboard CGPAC</h3>
+<p class="text-muted">Componentes sob responsabilidade: {{ comps|join(', ') }}</p>
+<table class="table table-hover">
+  <thead><tr><th>#</th><th>Autor</th><th>Disciplina</th><th>Turma</th><th>Conteúdo</th><th>Período</th><th>Status</th><th>Ações</th></tr></thead>
+  <tbody>
+    {% for p in planos %}
+    <tr>
+      <td>{{ p.id }}</td><td>{{ p.autor }}</td><td>{{ p.disciplina }}</td><td>{{ p.turma }}</td><td>{{ p.conteudo }}</td><td>{{ p.periodo }}</td>
+      <td><span class="badge bg-secondary">{{ p.status }}</span></td>
+      <td>
+        <form method="post" action="{{ url_for('plano_aprovar', pid=p.id) }}" class="d-inline"><button class="btn btn-sm btn-success">Aprovar</button></form>
+        <form method="post" action="{{ url_for('plano_reprovar', pid=p.id) }}" class="d-inline"><button class="btn btn-sm btn-outline-danger">Reprovar</button></form>
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="8" class="text-muted">Sem planos para sua área.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}{% endraw %}
