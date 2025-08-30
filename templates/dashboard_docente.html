@@ -1,0 +1,8 @@
+<h2>Dashboard Docente</h2>
+<a href="{{ url_for('novo_plano') }}">Novo Plano</a>
+<ul>
+{% for plano in planos %}
+  <li>{{ plano.numero_aula }} - {{ plano.disciplina }} - {{ plano.status }}</li>
+{% endfor %}
+</ul>
+<a href="{{ url_for('logout') }}">Sair</a>

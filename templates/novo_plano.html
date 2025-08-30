@@ -1,0 +1,12 @@
+<h2>Novo Plano de Aula</h2>
+<form method="post">
+  Número da Aula: <input type="text" name="numero_aula"><br>
+  Período Quinzenal: <input type="text" name="periodo"><br>
+  Conteúdo: <textarea name="conteudo"></textarea><br>
+  Metodologia: <textarea name="metodologia"></textarea><br>
+  Avaliação: <textarea name="avaliacao"></textarea><br>
+  Recursos Utilizados: <textarea name="recursos"></textarea><br>
+  Habilidades: <textarea name="habilidades"></textarea><br>
+  <input type="submit" value="Enviar Plano">
+</form>
+<a href="{{ url_for('dashboard') }}">Voltar</a>

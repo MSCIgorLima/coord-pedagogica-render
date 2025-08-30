@@ -1,0 +1,7 @@
+<h2>Dashboard CGPAC</h2>
+<ul>
+{% for plano in planos %}
+  <li>{{ plano.numero_aula }} - {{ plano.disciplina }} - {{ plano.status }} - {{ plano.autor }}</li>
+{% endfor %}
+</ul>
+<a href="{{ url_for('logout') }}">Sair</a>
