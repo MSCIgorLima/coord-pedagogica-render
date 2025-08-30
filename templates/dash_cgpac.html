@@ -7,7 +7,7 @@
   <tbody>
     {% for p in planos %}
     <tr>
-      <td>{{ p.id }}</td><td>{{ p.autor }}</td><td>{{ p.disciplina }}</td><td>{{ p.turma }}</td><td>{{ p.conteudo }}</td><td>{{ p.periodo }}</td>
+      <td>{{ p.id }}</td><td>{{ p.author }}</td><td>{{ p.comp.name }}</td><td>{{ p.turma }}</td><td>{{ p.conteudo }}</td><td>{{ p.periodo }}</td>
       <td><span class="badge bg-secondary">{{ p.status }}</span></td>
       <td>
         <form method="post" action="{{ url_for('plano_aprovar', pid=p.id) }}" class="d-inline"><button class="btn btn-sm btn-success">Aprovar</button></form>

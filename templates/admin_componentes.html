@@ -10,10 +10,10 @@
   <tbody>
     {% for c in componentes %}
     <tr>
-      <td>{{ c }}</td>
+      <td>{{ c.name }}</td>
       <td class="text-end">
         <form method="post" action="{{ url_for('admin_componentes_remover') }}">
-          <input type="hidden" name="nome" value="{{ c }}">
+          <input type="hidden" name="nome" value="{{ c.name }}">
           <button class="btn btn-sm btn-outline-danger" type="submit">Remover</button>
         </form>
       </td>

@@ -14,10 +14,10 @@
     </button>
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        {% if session.get('perfil') == 'Docente' %}
+        {% if session.get('profile') == 'Docente' %}
           <li class="nav-item"><a class="nav-link" href="{{ url_for('plano_novo') }}">Novo Plano</a></li>
         {% endif %}
-        {% if session.get('perfil') == 'CGPG' %}
+        {% if session.get('profile') == 'CGPG' %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="admDrop" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administração</a>
             <ul class="dropdown-menu" aria-labelledby="admDrop">
@@ -25,14 +25,20 @@
               <li><a class="dropdown-item" href="{{ url_for('admin_componentes') }}">Componentes curriculares</a></li>
               <li><a class="dropdown-item" href="{{ url_for('admin_usuarios') }}">Usuários (CGPAC/Docentes)</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{{ url_for('seed_demo') }}">Criar dados de exemplo</a></li>
+              <li>
+                <form method="post" action="{{ url_for('reset_demo') }}" class="d-inline">
+                  <button class="dropdown-item text-danger" type="submit">Recriar dados de demonstração</button>
+                </form>
+              </li>
             </ul>
           </li>
         {% endif %}
       </ul>
       <div class="d-flex">
-        <span class="navbar-text text-light me-3">{{ session['usuario'] }} ({{ session['perfil'] }})</span>
+        {% if session.get('username') %}
+        <span class="navbar-text text-light me-3">{{ session['username'] }} ({{ session['profile'] }})</span>
         <a class="btn btn-outline-light" href="{{ url_for('logout') }}">Sair</a>
+        {% endif %}
       </div>
     </div>
   </div>

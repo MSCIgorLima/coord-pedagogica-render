@@ -25,13 +25,13 @@
     <div class="col-12">
       <label class="form-label">Componentes para CGPAC (segure CTRL para multi-seleção)</label>
       <select class="form-select" name="componentes" multiple size="6">
-        {% for c in componentes %}<option value="{{ c }}">{{ c }}</option>{% endfor %}
+        {% for c in componentes %}<option value="{{ c.name }}">{{ c.name }}</option>{% endfor %}
       </select>
     </div>
     <div class="col-12">
       <label class="form-label">Disciplinas para Docente (segure CTRL para multi-seleção)</label>
       <select class="form-select" name="disciplinas" multiple size="6">
-        {% for c in componentes %}<option value="{{ c }}">{{ c }}</option>{% endfor %}
+        {% for c in componentes %}<option value="{{ c.name }}">{{ c.name }}</option>{% endfor %}
       </select>
     </div>
     <div class="col-md-4">
